@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test TweetBox</title>
+  </head>
+  <body>
+    <div class="well clearfix">
+      <textarea class="form-control"></textarea><br>
+      <span>140</span>
+      <button class="btn btn-primary pull-right">Tweet</button>
+    </div>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $("button").prop("disabled", true);
+
+      $("textarea").on("input", function() {
+        $("span").text(140 - $(this).val().length);
+        
+        if ($(this).val().length > 0) {
+          $("button").prop("disabled", false);
+        } else {
+          $("button").prop("disabled", true);
+        }
+      });
+    </script>
+  </body>
+</html>
